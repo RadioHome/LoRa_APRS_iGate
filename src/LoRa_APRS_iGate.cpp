@@ -215,7 +215,7 @@ void loop()
 // Added code to add rssi & snr to message content sent to aprs server
         String body = msg->getAPRSBody()->getData();
 		body.trim();
-		msg->getAPRSBody()->setData(body +" - rssi:"+lora_aprs.packetRssi()+" - snr: "+lora_aprs.packetSnr());                
+		msg->getAPRSBody()->setData(body +" - rssi: "+lora_aprs.packetRssi()+" - snr: "+lora_aprs.packetSnr());                
 //------------------
 		setup_display(); secondsSinceDisplay = 0; display_is_on = true;
 		show_display(Config.callsign, timeClient.getFormattedTime() + "         LoRa", "RSSI: " + String(lora_aprs.packetRssi()) + ", SNR: " + String(lora_aprs.packetSnr()), msg->toString());
